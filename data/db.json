@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Ahmed Hassan",
+      "email": "ahmed@gmail.com"
+    },
+    {
+      "id": "2",
+      "name": "Mona Ali",
+      "email": "mona@gmail.com"
+    },
+    {
+      "id": "3",
+      "name": "Youssef Mohamed",
+      "email": "youssef@gmail.com"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "title": "Why Learning React is Important in 2026",
+      "description": "React is still one of the most popular frontend libraries. In this post we will talk about components, hooks, and why companies still use React for modern web apps.",
+      "author": "Ahmed Hassan",
+      "authorId": 1,
+      "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&q=80"
+    },
+    {
+      "id": "2",
+      "title": "Getting Started with Node.js and Express",
+      "description": "If you want to build backend applications using JavaScript, Node.js with Express is one of the easiest ways to start creating APIs and fullstack projects.",
+      "author": "Mona Ali",
+      "authorId": 2,
+      "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80"
+    },
+    {
+      "id": "3",
+      "title": "Top VS Code Extensions Every Developer Should Use",
+      "description": "VS Code has thousands of extensions, but some tools like Prettier, ESLint, and GitLens can really improve your workflow and productivity.",
+      "author": "Youssef Mohamed",
+      "authorId": 3,
+      "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=600&q=80"
+    },
+    {
+      "id": "4",
+      "title": "Understanding APIs in Simple Words",
+      "description": "APIs allow applications to communicate with each other. This article explains REST APIs, requests, responses, and JSON using simple examples.",
+      "author": "Ahmed Hassan",
+      "authorId": 1,
+      "image": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&q=80"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
