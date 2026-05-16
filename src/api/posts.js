@@ -1,4 +1,5 @@
-const BASE_URL = "http://localhost:3001/posts";
+// const BASE_URL = "http://localhost:3001/posts";
+const BASE_URL = "https://6a083f8afa9b27c848fac8be.mockapi.io/api";
 
 const DEFAULT_HEADERS = {
   "Content-Type": "application/json",
@@ -26,7 +27,7 @@ async function handleResponse(response) {
  */
 export async function getPosts() {
   try {
-    const response = await fetch(BASE_URL);
+    const response = await fetch(`${BASE_URL}/posts`);
     return await handleResponse(response);
   } catch (error) {
     console.error("Error fetching posts:", error);
@@ -42,7 +43,7 @@ export async function getPosts() {
  */
 export async function createPost(post) {
   try {
-    const response = await fetch(BASE_URL, {
+    const response = await fetch(`${BASE_URL}/posts`, {
       method: "POST",
       headers: DEFAULT_HEADERS,
       body: JSON.stringify(post),
@@ -63,7 +64,7 @@ export async function createPost(post) {
  */
 export async function updatePost(id, updatedPost) {
   try {
-    const response = await fetch(`${BASE_URL}/${id}`, {
+    const response = await fetch(`${BASE_URL}/posts/${id}`, {
       method: "PATCH",
       headers: DEFAULT_HEADERS,
       body: JSON.stringify(updatedPost),
@@ -83,7 +84,7 @@ export async function updatePost(id, updatedPost) {
  */
 export async function deletePost(id) {
   try {
-    const response = await fetch(`${BASE_URL}/${id}`, {
+    const response = await fetch(`${BASE_URL}/posts/${id}`, {
       method: "DELETE",
     });
     if (!response.ok) {

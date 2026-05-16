@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+"server": "json-server --watch data/db.json --port 3001"

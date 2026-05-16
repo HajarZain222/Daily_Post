@@ -1,4 +1,5 @@
-const BASE_URL = "http://localhost:3001/users";
+// const BASE_URL = "http://localhost:3001/users";
+const BASE_URL = "https://6a083f8afa9b27c848fac8be.mockapi.io/api";
 
 const DEFAULT_HEADERS = {
   "Content-Type": "application/json",
@@ -22,13 +23,19 @@ async function handleResponse(response) {
  */
 export async function registerUser(name, email, password) {
   try {
-    const response = await fetch(BASE_URL, {
+    const existing = await fetch(`${BASE_URL}/users?email=${email}`);
+    const data = await existing.json();
+
+    if (data.length > 0) {
+      throw new Error("Email already registered");
+    }
+
+    const response = await fetch(`${BASE_URL}/users`, {
       method: "POST",
       headers: DEFAULT_HEADERS,
       body: JSON.stringify({ name, email, password }),
     });
-
-    return await handleResponse(response);
+    return handleResponse(response);
   } catch (error) {
     console.error("Error registering user:", error);
     throw error;
@@ -41,7 +48,7 @@ export async function registerUser(name, email, password) {
 export async function loginUser(email, password) {
   try {
     const response = await fetch(
-      `${BASE_URL}?email=${email}&password=${password}`
+      `${BASE_URL}/users?email=${email}&password=${password}`
     );
 
     const data = await handleResponse(response);
@@ -58,7 +65,7 @@ export async function loginUser(email, password) {
  */
 export async function getUsers() {
   try {
-    const response = await fetch(BASE_URL);
+    const response = await fetch(`${BASE_URL}/users`);
     return await handleResponse(response);
   } catch (error) {
     console.error("Error fetching users:", error);
