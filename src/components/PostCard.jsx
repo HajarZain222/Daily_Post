@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 export default function PostCard({ post, user, onEdit, onDelete }) {
-  const isOwner = user && user.id === post.authorId;
+  // const isOwner = user && user.id === post.authorId;
+  const isOwner = user && String(user.id) === String(post.authorId);
   const [imgError, setImgError] = useState(false);
 
   return (

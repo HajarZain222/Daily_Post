@@ -65,7 +65,7 @@ export async function createPost(post) {
 export async function updatePost(id, updatedPost) {
   try {
     const response = await fetch(`${BASE_URL}/posts/${id}`, {
-      method: "PATCH",
+      method: "PUT",
       headers: DEFAULT_HEADERS,
       body: JSON.stringify(updatedPost),
     });

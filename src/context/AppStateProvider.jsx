@@ -42,7 +42,6 @@ export function AppStateProvider({ children }) {
     loadPosts();
   }, []);
 
-
   /**
    * Show toast notification that auto-dismisses
    */
@@ -82,19 +81,20 @@ export function AppStateProvider({ children }) {
   const handleSavePost = async (post) => {
     try {
       let savedPost;
-      if (editPost) {
-        // Update existing post
-        const updates = {
-          title: post.title,
-          description: post.description,
-          image: post.image,
-        };
-        savedPost = await updatePost(post.id, updates);
-        setPosts((prev) =>
-          prev.map((p) => (p.id === post.id ? savedPost : p))
-        );
-        showToast("Post updated! ✅");
-      } else {
+        if (editPost) {
+          // Update existing post
+          const updates = {
+            title: post.title,
+            description: post.description,
+            image: post.image,
+          };
+          savedPost = await updatePost(editPost.id, updates);
+          setPosts((prev) =>
+            prev.map((p) => (p.id === editPost.id ? savedPost : p)),
+          );
+          showToast("Post updated! ✅");
+        }
+        else {
         // Create new post
         savedPost = await createPost(post);
         setPosts((prev) => [savedPost, ...prev]);
